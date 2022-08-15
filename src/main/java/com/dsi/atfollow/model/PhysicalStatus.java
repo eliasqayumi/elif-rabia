@@ -16,21 +16,22 @@ import java.util.Date;
 public class PhysicalStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, updatable = false)
+    @Column(name = "id", nullable = false, updatable = false)
     private Long id;
 
-    @Column(nullable = false, length = 100, name = "project_name")
+    @Column(nullable = false, length = 100)
     private String projectName;
 
-    @Column(nullable = false, length = 100, name = "project_name_with_code")
+    @Column(nullable = false, length = 100)
     private String projectNameWithCode;
 
-    @Column(nullable = false, length = 100, name = "project_code")
+    @Column(nullable = false, length = 100)
     private String projectCode;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false, name = "neighbourhood_id")
+    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    @JoinColumn(name = "neighbourhood_id")
     private Neighbourhood neighbourhood;
+
     private Date registrationDate;
     private Integer numberOfHangersMade;
 

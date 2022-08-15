@@ -10,7 +10,7 @@ import java.util.List;
 import static org.springframework.http.HttpStatus.OK;
 
 @RestController
-@RequestMapping("/Financial")
+@RequestMapping("/financial")
 public class FinancialController {
     private FinancialService financialService;
 

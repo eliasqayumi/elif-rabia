@@ -14,14 +14,14 @@ import javax.persistence.*;
 @JsonIgnoreProperties({"hibernateLazyInitializer"})
 public class District {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false, updatable = false, name = "district_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false, updatable = false)
     private Integer id;
 
-    @Column(nullable = false, name = "district_name", length = 50)
+    @Column(nullable = false, length = 50)
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY,optional = false)
     @JoinColumn(name = "city_id", nullable = false)
     private City city;
 }
